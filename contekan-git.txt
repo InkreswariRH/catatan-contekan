@@ -1,0 +1,177 @@
+Catatan ini berisi sintaks yang digunakan ketika bekerja dengan git.
+Sintaks ini diketikkan di git bash / terminal third party software yang kalian gunakan.
+
+
+1.
+Jika ingin mengecek saat ini Anda sedang berada di direktori apa, Anda dapat mengetikkan sintaks berikut di git bash:
+
+      pwd
+
+Sintaks tersebut berarti "print working directory".
+
+
+2.
+Jika ingin membersihkan layar terminal dari git bash, maka Anda dapat ketikkan sintaks berikut:
+
+      clear
+
+
+3. 
+Jika ingin melihat isi dari direktori dimana Anda sedang berada saat ini, Anda dapat mengetikkan sintak berikut:
+
+      ls
+
+
+4. 
+Jika ingin menginisiasi sebuah folder menjadi sebuah repository agar git memantau aktivitas yang terjadi di folder tersebut, sehingga ketika Anda membuat file baru / mengedit file yang sudah ada / menghapus file yang ada dan git akan menyimpan snapshot atau rekaman datanya, maka tentu folder tersebut harus dijadikan sebuah repository. Anda dapat mengetikkan sintaks berikut di dalam git bash / terminal:
+
+      git init
+
+
+5. 
+Jika Anda ingin mengecek status apakah terdapat file yang belum dikenali oleh git (misalkan Anda membuat file baru di dalam repository, maka file tersebut pasti belum dikenali oleh git karena belum masuk ke dalam staging area). Atau Anda ingin mengecek apakah ada file yang telah termodifikasi. Atau Anda ingin mengecek apakah terdapat file yang telah dihapus. Pada intinya, jika Anda ingin mengecek status dari file-file di dalam repository Anda, yang apabila terdapat salah satu atau bahkan seluruh proses yang telah disebutkan di atas dan perlu untuk di masukkan ke dalam staging area atau perlu untuk di commit, maka Anda dapat mengetikkan sintaks berikut di dalam git bash / terminal:
+
+      git status
+
+
+6. 
+Setelah Anda membuat sebuah file baru atau beberapa file baru, memodifikasi file, menghapus file, Anda perlu untuk memasukkan file-file tersebut ke staging area. Untuk memasukkan file-file tersebut ke dalam staging area, Anda dapat mengetikkan sintaks berikut di dalam git bash / terminal:
+
+      git add <nama file>
+ atau
+      git add .
+
+Anda dapat melakukan salah satu dari kedua hal tersebut. Jika Anda ingin menginputkan satu-satu, Anda dapat menggunakan cara "git add <nama file>". Tetapi, jika Anda ingin menginputkan seluruh file yang ada dan yang belum masuk ke staging area sekaligus, Anda dapat menggunakan cara "git add ." . Tanda titik memiliki arti "all".
+
+
+7.
+Jika Anda sudah memasukkan file-file yang Anda miliki dalam sebuah repository ke dalam staging area, Anda dapat melakukan commit. Commit dilakukan agar file Anda terekam oleh git. Jika kedepannya Anda membutuhkan file yang Anda lakukan pada saat proses commit tertentu, Anda dapat mengaksesnya kembali. 
+Anda dapat mengetikkan sintaks berikut di dalam git bash / terminal:
+
+      git commit -m "isi pesan commit"
+
+Perlu diingat bahwa setiap Anda melakukan commit, Anda wajib membuat pesan atau message yang berisi keterangan dari commit tersebut. Misal Anda habis mengedit file, lalu setelah file tersebut Anda masukkan ke dalam stage area dan Anda meng-commit file tersebut, maka Anda harus mengisikan pesan atau message terhadap file tersebut. Misalkan isi pesannya adalah "mengedit file dengan menambahkan fitur X". Terdapat sintaks -m yang maksudnya adalah "message". Hal tersebut dilakukan agar Anda mudah saat meng-track apa saja yang pernah Anda lakukan terhadap file-file di dalam repository Anda.
+
+
+8. 
+Jika setelah Anda melakukan commit beberapa kali, lalu Anda berpikir untuk kembali ke tahap atau kembali ke kondisi file dimana Anda belum melakukan perubahan terhadap file tersebut (kembali ke commit tertentu), Anda dapat mengetikkan sintaks berikut di dalam git bash / terminal:
+
+      git checkout <7 digit terdepan hash dari commit yang dimaksud>
+   atau 
+      git checkout <7 digit terdepan hash dari commit yang dimaksud> --<nama file yang diinginkan untuk dipulihkan kembali>
+
+Anda dapat melakukan salah satu dari keduah hal di atas. Cara kedua Anda lakukan jika Anda berniat untuk memulihkan atau mengembalikan kondisi file tertentu saja. Misalkan saat Anda melakukan commit tertentu, file yang Anda edit atau modifikasi lebih dari 1 file. 
+Perlu diingat bahwa tiap commit pasti memiliki hash commit-nya sebagai id bagi git untuk mengenali sebuah proses commit. Nah, Anda dapat mengambil 5 digit terdepan dari hash commit tersebut.
+
+
+9.
+Anda dapat membuat branch. Tujuannya adalah agar tidak mengganggu file utama (master branch) dari project Anda. Misalkan saat Anda membuat project, di tengah jalan Anda berpikir untuk menambahkan sebuah fitur atau bahkan beberapa fitur, dan pada dasarnya itu baru rencana yang jika nanti fitur itu berhasil dan setuju untuk diterapkan, maka Anda dapat menggabungkannya dengan file utama (master branch). Nah, proses membuat fitur baru tersebut dapat dilakukan di sebuah branch yang terpisah dari master branch. Untuk membuat branch baru, Anda dapat mengetikkan sintaks berikut di git bash / terminal:
+
+      git branch <nama branch>
+
+
+10.
+Jika Anda ingin mengecek ada branch apa saja di dalam repository Anda, maka Anda dapat mengetikkan sintaks berikut di git bash / terminal:
+
+      git branch
+
+
+11.
+Jika Anda ingin beralih dari satu branch ke branch lain, Anda dapat mengetikkan sintaks berikut di git bash / terminal:
+
+      git checkout <nama branch tujuan Anda>
+
+
+12.
+Jika Anda ingin menghapus sebuah branch setelah Anda melakukan merge antara branch tersebut dengan master branch, Anda dapat mengetikkan sintaks berikut di git bash / terminal:
+
+      git branch -d <nama branch yang mau dihapus>
+
+
+13.
+Jika Anda ingin menghapus sebuah branch, tetapi Anda belum melakukan merge terhadap branch tersebut. Misalkan karena setelah dibuat branch dan mencoba membuat fitur baru di branch tersebut, fitur tersebut tidak selesai atau tidak bagus untuk digunakan. 
+Maka Anda dapat mengetikkan sintaks berikut di git bash / terminal:
+
+      git branch -D <nama branch yang mau dihapus>
+
+
+14.
+Jika Anda ingin menggabungkan sebuah branch dengan branch utamanya (master branch), Anda dapat mengetikkan sintaks berikut di git bash / terminal:
+
+      git merge <nama branch yang mau digabungkan dengan master branch>
+
+
+15.
+Jika Anda ingin melihat branch apa saja yang sudah dilakukan merge, Anda dapat mengetikkan sintaks berikut di git bash / terminal:
+
+      git branch --merged
+
+
+16.
+Jika Anda ingin melihat apa saja yang pernah Anda lakukan terhadap repository Anda (Anda ingin melihat log aktivitas Anda), maka Anda dapat mengetikkan sintaks berikut di git bash / terminal:
+
+      git log
+   atau 
+      git log -- <nama file tertentu yang Anda ingin ketahui history aktivitasnya>
+   atau 
+      git log -<angka>
+
+Anda dapat melakukan salah satu dari ketiga hal tersebut. Cara kedua digunakan jika Anda ingin melacak aktivitas dari file tertentu saja bukan keseluruhan aktivitas repository tersebut. Cara ketiga digunakan jika ingin melihat beberapa (tergantung angka yang ditulis) aktivitas terakhir.
+
+
+17.
+Jika Anda ingin melihat tampilan grafis dari proses git yang terjadi di repository Anda (jika di Github, hal ini sama seperti jika Anda mengklik Insight -> Network), dan kemudian akan terlihat tanda commit dan branch dari repository Anda, Anda dapat mengetikkan sintaks berikut di git bash / terminal:
+
+      git log --all --decorate --oneline --graph
+
+
+18.
+Jika Anda ingin membuat alias dari sebuah sintaks, untuk memudahkan Anda jika ingin menggunakan sintaks tertentu (misalkan Anda malas untuk mengetikkan sintaks yang terlalu panjang), Anda dapat mengetikkan sintaks berikut di git bash / terminal:
+
+      alias <nama alias> = "<sintaks yang ingin Anda bikin aliasnya>"
+   
+   contoh:
+      alias graph = "git log --all --decorate --oneline --graph"
+
+Maka akan dibuatkan sintaks graph yang isinya itu sintaks "git log --all --decorate --oneline --graph". Jadi kedepannya jika Anda ingin melihat grafik dari aktivitas repository Anda, Anda tidak perlu panjang-panjang mengetikkan sintaks. Cukup dengan hanya mengetikkan graph pada git bash atau terminal Anda, karena sudah dibuatkan aliasnya.
+
+
+19. 
+Jika file yang ada di repository Anda termodifikasi, dan status dari file tersebut adalah Modified, maka Anda dapat langsung mengetikkan sintaks commit seperti berikut di git bash / terminal:
+
+   git commit -am "<pesan commit>"
+
+-a di sintaks tersebut artinya adalah "add" yang merupakan perintah untuk memasukkan file yang dimodifikasi ini ke staging area. Sintaks m artinya adalah "message". Sintaks di atas hanya dapat digunakan jika filenya memiliki status Modified.
+
+
+20.
+Untuk mengetahui remote dari repository Anda yang ada di komputer lokal, Anda dapat mengetikkan sintaks berikut di git bash / terminal:
+
+      git remote
+
+Sintaks ini digunakan apabila komputer lokal Anda terhubung dengan remote. Sebagai contoh, komputer lokal Anda terinstall git dan terhubung dengan remote Anda di Github.
+
+
+21.
+Untuk mengetahui alamat dari remote Anda, Anda dapat mengetikkan sintaks berikut di git bash / terminal:
+
+      git remote -v
+
+22.
+Untuk mengecek repo yang ada di remote sudah sampai mana updatenya, Anda dapat mengetikkan sintaks berikut di git bash / terminal:
+
+      git fetch
+
+23.
+Untuk menarik data yang ada di remote ke repo di komputer lokal kita, Anda dapat mengetikkan sintaks berikut di git bash / terminal:
+
+      git pull
+
+
+24.
+Untuk melakukan login user terhadap git yang ada di komputer lokal Anda, dimana hal ini dilakukan agar Anda dapat melakukan push ke remote, Anda dapat mengetikkan sintaks berikut di git bash / terminal:
+
+      git config --global user.name "<nama username remote Anda (username Github, jika Anda menggunakan Github sebagai remote)>"
+      git config --global user.email "<email remote Anda>"
+
+global digunakan untuk menerapkan username dan email ini ke seluruh repository yang ada. Jika ingin menerapkan username dan email tersebut di repository tertentu, maka saat membuka repository tersebut, lakukan sintaks di atas dan "global" diganti dengan "local".
