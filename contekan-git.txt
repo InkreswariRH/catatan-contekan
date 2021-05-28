@@ -157,10 +157,12 @@ Untuk mengetahui alamat dari remote Anda, Anda dapat mengetikkan sintaks berikut
 
       git remote -v
 
+
 22.
 Untuk mengecek repo yang ada di remote sudah sampai mana updatenya, Anda dapat mengetikkan sintaks berikut di git bash / terminal:
 
       git fetch
+
 
 23.
 Untuk menarik data yang ada di remote ke repo di komputer lokal kita, Anda dapat mengetikkan sintaks berikut di git bash / terminal:
