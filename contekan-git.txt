@@ -177,3 +177,9 @@ Untuk melakukan login user terhadap git yang ada di komputer lokal Anda, dimana 
       git config --global user.email "<email remote Anda>"
 
 global digunakan untuk menerapkan username dan email ini ke seluruh repository yang ada. Jika ingin menerapkan username dan email tersebut di repository tertentu, maka saat membuka repository tersebut, lakukan sintaks di atas dan "global" diganti dengan "local".
+
+
+25.
+Jika ingin melihat info dari git Anda, Anda dapat mengetikkan sintaks berikut di git bash / terminal:
+
+      git config --list
