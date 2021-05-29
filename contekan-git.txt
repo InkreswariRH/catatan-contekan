@@ -199,3 +199,12 @@ Untuk mengupload atau mengupdate data di repository Anda ke remote, Anda dapat m
       git push <nama remote> <nama branch>
 
 Cara kedua digunakan apabila saat eksekusi proses di git, Anda berurusan dengan lebih dari 1 remote. Lalu tiap remote memiliki lebih dari 1 branch. Sehingga Anda dapat menentukan, kemana Anda akan mengupload data repo Anda ini dan di branch mana.
+
+
+27.
+Agar commit-commit yang Anda lakukan terhadap repository mudah untuk dilacak dan dipahami (terutama jika bekerja dalam tim dengan jumlah anggota besar), layaknya atau sebaiknya merge yang dilakukan adalah merge yang bertipe fast-forward. Untuk melakukan hal tersebut, dapat melakukan rebase. Rebase dilakukan agar HEAD (pointer aktif yang menunjuk ke commit yang aktif), dapat berpindah ke commit tertentu dan menyebabkan proses merge yang nanti dilakukan berjenis fast forward. 
+Untuk melakukan rebase, Anda dapat mengetikkan sintaks berikut di git bash / terminal:
+
+      git rebase <nama cabang>
+
+Rebase ini akan dilakukan beberapa kali tergantung masalah dan project Anda. Intinya rebase dilakukan hingga cabang dalam posisi sejajar dan dapat melakukan merge secara fast forward.
