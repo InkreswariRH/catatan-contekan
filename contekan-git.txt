@@ -99,6 +99,8 @@ Maka Anda dapat mengetikkan sintaks berikut di git bash / terminal:
 Jika Anda ingin menggabungkan sebuah branch dengan branch utamanya (master branch), Anda dapat mengetikkan sintaks berikut di git bash / terminal:
 
       git merge <nama branch yang mau digabungkan dengan master branch>
+   atau
+      git merge <nama remote yang mau digabungkan>/<nama branch yang mau digabungkan> 
 
 
 15.
