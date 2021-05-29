@@ -187,3 +187,13 @@ global digunakan untuk menerapkan username dan email ini ke seluruh repository y
 Jika ingin melihat info dari git Anda, Anda dapat mengetikkan sintaks berikut di git bash / terminal:
 
       git config --list
+
+
+26.
+Untuk mengupload atau mengupdate data di repository Anda ke remote, Anda dapat mengetikkan sintaks berikut di git bash / terminal:
+
+      git push
+   atau
+      git push <nama remote> <nama branch>
+
+Cara kedua digunakan apabila saat eksekusi proses di git, Anda berurusan dengan lebih dari 1 remote. Lalu tiap remote memiliki lebih dari 1 branch. Sehingga Anda dapat menentukan, kemana Anda akan mengupload data repo Anda ini dan di branch mana.
