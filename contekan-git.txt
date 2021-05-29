@@ -139,7 +139,7 @@ Maka akan dibuatkan sintaks graph yang isinya itu sintaks "git log --all --decor
 19. 
 Jika file yang ada di repository Anda termodifikasi, dan status dari file tersebut adalah Modified, maka Anda dapat langsung mengetikkan sintaks commit seperti berikut di git bash / terminal:
 
-   git commit -am "<pesan commit>"
+      git commit -am "<pesan commit>"
 
 -a di sintaks tersebut artinya adalah "add" yang merupakan perintah untuk memasukkan file yang dimodifikasi ini ke staging area. Sintaks m artinya adalah "message". Sintaks di atas hanya dapat digunakan jika filenya memiliki status Modified.
 
@@ -162,6 +162,10 @@ Untuk mengetahui alamat dari remote Anda, Anda dapat mengetikkan sintaks berikut
 Untuk mengecek repo yang ada di remote sudah sampai mana updatenya, Anda dapat mengetikkan sintaks berikut di git bash / terminal:
 
       git fetch
+    atau
+      git fetch <nama remote>
+
+Cara kedua digunakan apabila kita memiliki 2 remote dan ingin mengetahui apakah data di repository dengan nama remote tersebut mengalami perubahan data atau tidak. Jadi datanya kita ambil dulu jika ingin mengetahui hal itu.
 
 
 23.
