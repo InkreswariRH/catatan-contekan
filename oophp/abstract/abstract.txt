@@ -1,0 +1,38 @@
+Abstract class tidak dapat diinstansiasi. Jika di kodingan, maka akan error jika dicoba diinstansiasi, sementara jika berdasarkan konsep maka akan sangat aneh apabila diinstansiasi.
+
+Yang diinstansiasi nanti adalah kelas turunannya.
+
+Kelas abstrak akan menjadi kerangka dasar, dan menyediakan interface bagi kelas turunannya (child class).
+
+Dalam class abstract harus memiliki minimal 1 method abstract. Nanti method abstract yang ada di class abstract tidak akan ada isinya, method abstract ini nanti akan digunakan atau diimplementasikan di kelas turunannya. 
+
+Di kelas turunannya, method abstract yang akan diimplementasikan harus memiliki nama method yang sama dengan nama method abstract yang ada di class abstract.
+
+
+Cara membuat class abstract yaitu dengan menambahkan keyword abstract sebelum keyword class.
+
+Contoh:
+
+      abstract class Buah {
+         
+      }
+
+
+Seperti telah disebutkan sebelumnya, class abstract harus memiliki minimal 1 method abstract. Cara membuat method abstract seperti berikut:
+
+   abstract class Buah {
+
+      private $jumlah;
+
+      abstract public function makan();
+
+      public function setJumlah(){
+         $this->jumlah = $jumlah
+      }
+   }
+
+
+
+Dalam class abstract boleh terdapat method atau property reguler (private / public / protected).
+Dalam class abstract juga boleh terdapat method atau property static.
+
