@@ -1,0 +1,50 @@
+static keyword merupakan cara untuk mengakses property atau method dari sebuah class tanpa perlu melakukan instansiasi terhadap class tersebut terlebih dahulu.
+
+Jadi, intinya static akan melekat dengan class, bukan instance object.
+
+untuk mengakses property atau method static, sekali lagi, tidak perlu melakukan instance object dari class tersebut. Cukup dengan memanggil <nama class> kemudian <::> dan dilanjutkan dengan <nama property> atau <nama method> yang mau dipanggil. 
+
+Sintaks dalam membuat property static adalah sebagai berikut:
+
+   class CobaStatic {
+
+      public static $judul;
+
+   }
+      
+
+Sintaks dalam membuat method static adalah sebagai berikut:
+
+   class Coba Static {
+
+      public static function sapa(){
+         return "haloo";
+      }
+
+   }
+      
+
+Sintaks dalam memanggil property static adalah sebagai berikut:
+
+      CobaStatic::$judul;
+
+
+Sintaks dalam memanggil method static adalah sebagai berikut:
+
+      CobaStatic::sapa();
+
+
+Nilai dari property static tidak akan di reset ulang kembali walaupun di instansiasi berulang-ulang kali. Jadi nilainya akan melanjutkan dari nilai terakhir yang telah terbentuk.
+
+Ketika menggunakan keyword static, jika saat berada di dalam function dan ingin merujuk pada sebuah property maka kita tidak bisa lagi menggunakan $this. $this digunakan hanya ketika akan digunakan dalam instance object. Sementara kan static ini tidak menggunakan instance object, jadi yang digunakan adalah self::
+
+Contoh sintaks seperti ini:
+
+class CobaStatic {
+
+   public static function sapa(){
+      return "halo" . self::$angka . "kali.";
+   }
+   
+}
+
