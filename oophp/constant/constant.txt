@@ -1,0 +1,39 @@
+constant adalah konstanta. Konstanta nilainya tetap dan tidak akan bisa diubah ketika sudah di set dalam program kita. Hingga program kita berakhir, maka nilainya akan selalu tetap.
+
+untuk membuat constant ada 2 cara:
+
+   - define()
+
+   - const <nama konstanta>
+
+
+Saat membuat konstanta, nama dari konstanta harus ditulis dengan huruf besar, agar dapat dibedakan mana yang variabel, mana yang konstanta. 
+Saat memanggil konstanta untuk dieksekusi pun tidak perlu menggunakan tanda $, karena konstanta tidak menggunakan tanda $ seperti variabel (jadi langsung nama konstantanya aja).
+
+Contoh #1:
+
+  define("NAMA", "Ines");
+
+  echo NAMA;
+
+
+Contoh #2:
+
+   const NAMA = "Ines";
+
+   echo NAMA;
+
+
+Membuat konstanta menggunakan cara define() tidak bisa dilakukan di dalam class (harus di luar class, jadi konstanta ini akan menjadi variabel global). Jadi kalo pake konsep object oriented, kita ga bisa menggunakan teknik pembuatan konstanta yang define(), bisanya hanya menggunakan teknik yang const. 
+Jadi, konsep OOP saat ingin membuat konstanta, menggunakan teknik const.
+
+
+Cara memanggil konstanta yang berada di dalam class, sama caranya seperti saat menggunakan keyword static.
+
+Contoh:
+
+   class Coba {
+      const NAMA = "Ines";
+   }
+
+   echo Coba::NAMA;
