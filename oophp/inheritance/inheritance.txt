@@ -1,0 +1,17 @@
+inheritance merupakan situasi dimana ada parent dan child. Child akan mewarisi semua property dan method yang dimiliki oleh class parent.
+
+Jika suatu saat dibuat instance object dari class child, kemudian dalam instance object tersebut ingin mengakses property atau method yang tidak dimiliki di dalam class child, melainkan berada di class parent, maka sistem akan menggunakan property atau method yang ada di class parent.
+
+Alurnya: Pertama jika dipanggil property atau method di instance object class child, maka sistem akan mengecek di class child terlebih dahulu, ada atau tidak. Jika tidak ada, maka sistem akan mencari di class parent. Dan jika ditemukan, maka akan menggunakan property atau method yang ada di class parent tersebut.
+
+Cara membuat inheritance menggunakan kata kunci "extends" :
+       
+       class Parent {
+          ini misalnya adalah contoh dari class parent. Berisi property dan method (seperti class umumnya)
+       }
+
+
+       class Child extends Parent {
+          ini misalnya adalah class child dari parent di atas yang ditandai dengan kata kunci extends.
+       }
+

@@ -1,0 +1,7 @@
+overriding digunakan apabila misalnya, di dalam class child kita memiliki method dengan nama yang sama persis dengan method yang ada di class parent. Nah di dalam class child itu kita ingin menggunakan method atau memanggil method milik class parent. Masalahnya adalah nama dari method yang ada di child dan parent kan sama persis. Jadi untuk mengatasi hal tersebut, kita dapat melakukan overriding.
+
+Untuk melakukan overriding, kita dapat menuliskan seperti ini:
+
+   parent::<nama method>()
+
+Perlu diingat, kalau saat eksekusi, pasti awalnya program akan mencari di class child terlebih dahulu. Jika tidak ditemukan (misal property atau methodnya), baru diambil dari class parent.

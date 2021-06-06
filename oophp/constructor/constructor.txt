@@ -1,0 +1,25 @@
+Constructor adalah method yang otomatis dijalankan ketika kita membuat instance object dari sebuah class.
+
+Cara membuat costructor:
+
+      public function __construct($<variabel1>, $<variabel2>, dst..){
+
+      }
+
+Constructor umumnya akan mengisi property dari class yang diinstansiasi, oleh karena itu di dalam constructor dilakukan pendefinisian property-property class yang akan diisi dengan nilai dari variabel lokal yang ada di parameter constructor.
+
+Pada saat pembuatan constructor, umumnya akan dilakukan hal berikut:
+
+      public function __construct($variabel1,$variabel2){
+         $this->property1 = $variabel1;
+         $this->property2 = $variabel2;
+      }
+
+Constructor bisa diberikan nilai default. Caranya dengan mengisikan nilai default yang ditentukan di dalam parameter constructor. Nantinya jika saat instansiasi, ada nilai di parameter class yang tidak kita isi, maka otomatis akan menggunakan nilai dari default constructor yang telah ditentukan. 
+
+Menulis nilai default pada constructor seperti ini:
+
+      public function __construct($variabel1 = <nilai default yang ditentukan>,$variabel2 = <nilai default yang ditentukan>){
+         $this->property1 = $variabel1;
+         $this->property2 = $variabel2;
+      }

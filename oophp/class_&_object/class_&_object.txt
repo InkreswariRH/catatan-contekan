@@ -1,0 +1,32 @@
+Object Oriented Programming merupakan paradigma dalam pemrograman yang melihat segala hal dalam bentuk    objek. Untuk mengeksekusi sebuah proses, harus selalu melibatkan objek, misalnya mulai dari menciptakan objek terlebih dahulu lalu baru memanggil objek tersebut agar proses tujuan dapat dikerjakan.
+Karena objek merupakan inti dari pemrograman berorientasi objek, maka terdapat unsur dasar penting yaitu class dan object.
+
+   - class
+
+      class adalah blueprint atau template untuk menciptakan instance dari object.
+
+   - object
+
+      object adalah instance dari sebuah class.
+
+Jika kedua hal tersebut diibaratkan dalam kehidupan nyata yaitu diibaratkan sebagai denah rumah dan rumah dari sebuah komplek, maka class adalah denah rumahnya dan rumah adalah object nya. 
+
+** Cara menulis class di PHP yaitu:
+
+   class <nama class> {
+
+   }
+
+   contoh:
+
+   class Sekolah {
+
+   }
+
+** Cara membuat object atau instance object dari sebuah class yaitu:
+
+   <nama variabel> = new <nama class>();
+
+   contoh:
+   
+   sekolah1 = new Sekolah();

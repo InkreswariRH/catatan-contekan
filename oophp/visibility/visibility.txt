@@ -1,0 +1,17 @@
+visibility adalah sesuatu yang dipakaikan kepada property atau method dalam sebuah class. Visibility ini dilakukan untuk mencegah property atau method untuk dapat diakses sembarangan yang dapat berdampak pada pengubahan nilai dari sebuah property secara tidak sengaja atau mungkin secara sengaja.
+
+Penggunaan visibility ini dapat digunakan untuk enkapsulasi.
+
+Ada 3 jenis visibility:
+   1. public
+   2. Protected
+   3. private
+
+1. public
+merupakan visibility yang menyebabkan property atau method yang menggunakan visibility ini, akan dapat diakses dari manapun bahkan dari luar class.
+
+2. Protected
+merupakan visibility yang menyebabkan property atau method hanya dapat diakses oleh class parent dan class turunannya (child).
+
+3. private
+mreupakan visibility yang menyebabkan property atau method hanya dapat diakses oleh class itu sendiri saja. Tidak dapat diakses oleh class lain, tidak dapat juga diakses oleh class turunan (child), dan juga tidak dapat diakses dari luar class.

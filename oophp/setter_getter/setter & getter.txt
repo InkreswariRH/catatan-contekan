@@ -1,0 +1,3 @@
+setter dan getter adalah method dalam sebuah class yang erat kaitannya dengan visibility. Dengan adanya setter dan getter ini, jika property di set menggunakan visibility protected atau private, maka property tersebut hanya akan dapat diakses melalui method setter dan getter. 
+
+Apabila kita membuat property dengan visibility private, maka kita dapat membuat method setter dan getter (misalnya method ini memiliki visibility public) yang berisi proses mengakses property private tersebut, sehingga nantinya method setter dan getter ini dapat dipanggil dari luar class untuk mengakses nilai atau meng-set nilai dari property tersebut.

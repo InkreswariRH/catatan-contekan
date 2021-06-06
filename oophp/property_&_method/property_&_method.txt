@@ -1,0 +1,39 @@
+- property
+
+   property adalah variabel dalam sebuah class yang digunakan untuk menggambarkan data yang dimiliki oleh sebuah class, menggambarkan karakteristik dari sebuah class.
+
+   property sebenarnya sama saja dengan variabel. Akan tetapi, jika variabel terletak dalam sebuah class, disebutnya bukan lagi variabel, melainkan property.
+
+   Cara bikinnya / nulisnya sama saja seperti variabel, bedanya di depannya ditambahkan visibility (public/private/protected).
+
+   Contoh nulisnya:
+
+      public $nama;
+
+- method
+
+   method merupakan bagian dari sebuah class yang digunakan untuk menjelaskan fungsionalitas dari sebuah class (class tersebut memiliki kemampuan apa aja).
+
+   method sebenarnya sama saja dengan function. Akan tetapi jika function terletak dalam sebuah class, disebutnya bukan lagi function, melainkan method.
+
+   Cara bikinnya / nulisnya juga sama saja seperti function, bedanya di depannya ditambahin visibility (public/private/protected). Defaultnya jika tidak diberikan visibility (misal kita kelupaan), akan dianggap sebagai public.
+
+   Contoh nulisnya:
+
+      public function tambahData(){
+
+      }
+
+
+- kalo di dalam method kita mendefinisikan sebuah property, tetapi kita ingin agar nilai dari property tersebut merupakan nilai dari property yang digunakan di dalam class, maka kita tulis seperti ini:
+   
+      $this-><nama property>
+
+   Contoh nulisnya:
+
+      public function tambahData(){
+         return $this->nama;
+      }
+
+$this memiliki arti "kita mau menggunakan property yang didefinisikan di dalam class, bukan bikin property baru". Sebenarnya sama aja seperti global.
+      
