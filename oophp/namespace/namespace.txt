@@ -1,0 +1,47 @@
+- PHP tidak akan mengijinkan kita untuk memiliki class dengan nama yang sama. Misal 2 kelas atau lebih dengan nama yang sama. Itu dilarang dan pasti error.
+
+- Agar kita tetap dapat memiliki class dengan nama yang sama, tetapi si program dapat membedakan bahwa class-class ini adalah class yang berbeda (class ini milik si ini dan class yang itu milik si itu), kita dapat menggunakan teknik namespace. 
+
+- Namespace nanti akan memungkinkan kita untuk memiliki lebih dari 1 class (bisa 2 class atau bahkan lebih) dengan nama yang sama. Tetapi si program akan tetap dapat mengenali bahwa class ini adalah class dari package A dan class ini berasal dari package B.
+
+- Untuk membuat namespace, kita harus mengetikkan seperti berikut di baris awal sekali dari program kita (di samping <?php ) :
+
+      namespace <nama vendor>\<nama package tempat file berada>;
+
+- Vendor biasanya adalah tempat dimana package berada.
+
+- Jika di dalam package terdapat package lagi, maka untuk membuat namespace seperti berikut:
+
+      namespace <nama vendor>\<nama package>\<nama sub package>;
+
+- Namespace ini seharusnya ditulis di setiap class di dalam sebuah package, agar menunjukkan bahwa file-file ini berada dalam package tertentu.
+
+- Misalkan dalam studi kasus ini, saya memiliki folder bernama App. Di dalam folder App tersebut terdapat beberapa folder (atau dapat disebut modul), yaitu Produk dan Service. Di dalam folder Produk dan Service masing-masing memiliki class bernama User.php. Sehingga jika digambarkan seperti berikut:
+
+      - App   
+         - Produk
+            User.php  
+         - Service
+            User.php
+
+   Lalu saya ingin memberikan namespace untuk class user.php di package Produk:
+         namespace App\Produk;
+   
+   Jika saya ingin memberikan namespace untuk class user.php di package Service:
+         namespace App\Service;
+
+
+- Saat ingin memanggilnya yaitu saat instansiasi, maka dilakukan dengan cara namespace + nama kelas;
+
+Contoh:
+        
+        new App\Service\User();
+
+- Agar tidak kepanjangan ngetiknya saat mau instansiasi, kita dapat membuat alias. Caranya diawali dengan keyword 'use' dan 'as':
+Contoh:
+      use App\Service\User as ServiceUser;
+
+      user App\Produk\User as ProdukUser;
+
+Jadi nanti saat nanti ingin memanggilnya (saat instansiasi), dilakukan dengan cara:
+      new ServiceUser();
