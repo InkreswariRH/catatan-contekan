@@ -1,0 +1,10 @@
+autoload adalah teknik memanggil class secara otomatis. Misalkan kita membuat program yang terdiri dari file-file class yang terpisah. Tiap-tiap file akan saling membutuhkan class atau saling memanggil class yang terletak di file-file yang terpisah. Umumnya kita akan menggunakan require untuk memanggil file yang dibutuhkan, tetapi agar otomatis terpanggil (jadi tidak usah ketik require banyak-banyak nantinya jika filenya banyak), kita dapat menggunakan autoload.
+
+membuat autoload adalah sebagai berikut:
+
+spl_autoload_register(function($class){
+   require '<nama folder yang isinya file-file program kita>/'. $class . '.php';
+});
+
+
+Dalam studi kasus ini, autoload saya simpan di dalam file init.php yang berada di dalam folder App.
