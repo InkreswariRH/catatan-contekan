@@ -1,0 +1,59 @@
+- interface adalah class yang sama sekali tidak memiliki implementasi.
+
+- interface hanya terdiri dari pendeklarasian method (method yang tidak diimplementasi) saja.
+
+- interface tidak boleh memiliki property, hanya boleh ada method saja. Methodnya pun tidak boleh  diimplementasikan, cukup di deklarasikan saja.
+
+- semua method yang ada di interface harus dideklarasikan dengan visibility public.
+
+- di dalam interface boleh mendeklarasikan construct (konstruktor).
+
+- kelas turunannya boleh mengimplementasikan lebih dari 1 class interface.
+
+
+- Cara membuat class interface dengan menggunakan keyword interface di sebelum nama class:
+
+   Misalkan kita memiliki class bernama Buah, sebelumnya bentuknya akan seperti ini:
+
+         class Buah {
+
+         }
+
+   Kemudian jika ingin diubah menjadi interface, maka sebelum nama class diganti dengan keyword interface. Seperti berikut:
+
+         interface Buah {
+
+         }
+
+   Di dalam interface pun hanya boleh ada method yang visibility-nya public dan itu pun hanya di deklarasikan saja, tanpa ada implementasinya. Seperti berikut:
+
+         interface Buah {
+
+            public function makan();
+            public function setWarna($warna);
+
+         }
+
+
+- kelas turunannya, jika ingin mengimplementasikan class interface caranya adalah dengan menggunakan keyword impelements. Seperti berikut:
+
+         class Apel implements Buah {
+
+         }
+
+   Di dalam class turunan harus ada semua method yang ada di class interface.
+
+         class Apel implements Buah {
+
+            protected $warna;
+
+            public function makan(){
+
+            }
+
+            public function setWarna($warna){
+               $this->warna = $warna;
+            }
+         }
+
+class turunan yang mengimplementasikan sebuah class interface, harus mengimplementasikan seluruh method yang dimiliki oleh class interface tersebut. 

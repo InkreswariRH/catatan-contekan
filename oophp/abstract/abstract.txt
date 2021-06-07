@@ -36,3 +36,5 @@ Seperti telah disebutkan sebelumnya, class abstract harus memiliki minimal 1 met
 Dalam class abstract boleh terdapat method atau property reguler (private / public / protected).
 Dalam class abstract juga boleh terdapat method atau property static.
 
+class turunan dari class abstract, harus mengimplementasikan abstract method yang ada class abstract.
+
