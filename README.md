@@ -3,4 +3,4 @@ Catatan materi-materi dan contekan-contekan sintaks. Repository ini dibuat untuk
 
 Pada repository ini terdapat (dan akan terus bertambah seiring waktu):
 - Catatan sintaks dari penggunaan GIT
-- Catatan materi dari Object Oriented Programming dari PHP
+- Catatan materi dari Object Oriented Programming di PHP
