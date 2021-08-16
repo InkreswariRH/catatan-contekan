@@ -1,0 +1,122 @@
+- routes merupakan file yang menentukan controller mana yang akan diakses.
+
+- untuk menentukan dan mengatur routes dalam CI 4, yang diatur-atur itu yaitu file Routes.php yang ada di dalam folder App->Config.
+
+- settingnya di dalam bagian Router Definition. Nanti ada sintaks default yaitu :
+
+      $routes->get('/','Home::index');
+   
+   artinya, ketika ada metode request get (yang mengakses dari URL browser), lalu mengakses base url yaitu http://localhost:8080 (karena kita menggunakan local server php spark serve), maka akses controller Home dan method index.
+
+   Perlu diingat, tanda / memiliki arti base url. Jadi karena kita menggunakan local server, maka base url kita adalah http://localhost:8080. Jadi 
+   
+         / = http://localhost:8080
+
+   
+
+- karena controller inheritance dari BaseController, maka kalo misal mau bikin model atau session yang mau dipake oleh semua controller, bikinnya di dalam file parent BaseController ini. Misal kita bikin property di file parent BaseController, bikinnya dengan cara berikut:
+
+      $this->nama = 'ines';
+   
+   nanti property ini bisa diakses di controller manapun. 
+   Misal di controller home, di dalam method index, dipanggil property nama yang ada di parent tadi. Jadi manggilnya begini:
+
+         public function index()
+         {
+            echo $this->nama;
+         }
+
+
+- bisa juga tanpa memanggil controller dan method, kita bisa melakukan closure, yaitu seperti ini:
+
+      $routes->get('/coba', function(){
+         echo "hello world";
+      });
+
+   nanti sintaks di atas, ketika kita akses controller coba, nanti hello world akan dijalankan. Teknik closure ini dijalankan ketika kita ingin melakukan sesuatu tapi tanpa terikat pada sebuah controller dan method tertentu.
+
+
+- segmen adalah istilah yang merujuk pada bagian setelah slash / di URL. Seperti berikut:
+
+      localhost:8080/segmen1/segmen2/segmen3/dst..
+
+Segmen pertama adalah controller. Segmen kedua adalah method. Sementara segmen selanjutnya dapat berupa inputan untuk sebuah method, misalnya:
+
+      localhost:8080/coba/about/ines
+
+maka kita memberikan inputan parameter bernilai ines kepada method about. Tinggal ditangkap di dalam file controller coba method about. Cara nangkepnya seperti berikut:
+
+     public function about($nama)
+     {
+        echo $nama;
+     }
+
+nanti parameternya dikasih nilai defaultnya, supaya biar kalo ga ada data segmen yang diberikan, ga akan error. jadi seperti berikut:
+
+         public function about($nama='')
+         {
+            echo $nama;
+         }
+
+===========================================================================================================
+
+- misalkan kita mau akses seperti ini:
+
+       localhost:8080/produk/34.
+
+   artinya kan kalo berdasarkan aturan berarti akses controller produk, method 34. 
+   Padahal sebenarnya kita nulis URL tersebut dengan maksud maunya akses controller produk, method index, data dengan id 34.
+
+   Gimana caranya biar hanya dengan URL seperti tadi, kita dapat mengakses controller produk, method index, dengan data id 34?
+   Kita bisa manipulasi routes agar bisa akses URL seperti localhost:8080/produk/34.
+
+   Routes akan dimanipulasi seperti berikut:
+
+         $routes->get('/coba/(:any)', 'Coba::about/$1');
+
+   Selain (:any), bisa juga yang lain. Kalo (:any) adalah apapun baik alfabet, karakter (?.,!, dst), angka, pokoknya apapun.
+
+   Bisa juga (:num), yang artinya angka saja.
+
+   Bisa juga (:alpha), yang artinya alfabet a-z.
+
+   Bisa juga (:alphanum), yang artinya alfabet a-z dan angka.
+
+   Bisa juga (:segment), yang artinya apapun, kecuali karakter slash /.
+
+   Kalo mau nambah segmen, misal data yang dikirimkan ada 2, maka routesnya akan seperti ini:
+
+         $routes->get('/coba/(:any)/(:any)', 'Coba::about/$1/$2');
+
+============================================================================================================
+
+- perhatikan, misalkan kita bikin folder baru namanya admin.
+- setelah bikin folder, kalo mau akses file yang ada di dalam folder admin itu, jangan lupa tambahin \admin di namespace nya.
+      misal: namespace App\Controllers\Admin; 
+
+- lalu, kalo misalnya class parentya malah ga kebaca, jangan lupa pake use.
+Jadi use <nama vendor>\Controllers\<nama class parentnya>
+      misal: use App\Controllers\BaseController;
+
+- lalu kalo udah ada namespace tambahannya gitu, pas di Routes.php jadi kaya gini:
+      $routes->get('/users', 'Admin\Users::index');
+      admin disini maksudnya adalah folder admin.
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+- pada saat memanggil base url dari halaman utama atau dari halaman manapun, kalo misalnya pake local server (php spark serve), pas manggil base url itu cukup / saja. 
+      contoh:
+       <a href="/"></a>
+       <a href="/page/about"></a>
+
+- apabila memanggilnya menggunakan xampp (cara biasa), cara manggil base url nya dengan cara harus ada php echo dan base_url().
+      contoh: 
+      <a href="<?= base_url('/'); ?>"></a>
+      <a href="<?= base_url('/page/about'); ?>"></a>
+
+
+
+
+
+

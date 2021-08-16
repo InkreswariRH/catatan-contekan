@@ -1,0 +1,8 @@
+- pada catatan model 2 ini, akan dijelaskan bagaimana mengambil 1 data berdasarkan data yang dipilih. (biasanya kan data berdasarkan id. Ini berdasarkan slug).
+
+- untuk mengambil 1 data aja, di CI ada fitur namanya where.
+
+- Jadi misalkan, ada file controller Komik.php. Mau ngambil data detail dari sebuah produk tertentu.
+   Fitur model yang dipake adalah:
+   where(['slug' => $slug])->first();
+

@@ -1,0 +1,27 @@
+- ada 2 folder, app dan public.
+
+- app berisi file utama dari aplikasi kita nantinya. kayak models, view, controller, config, database.
+
+- public berisi file-file dan asset yang bisa diubah-ubah oleh kita nanti (kayak font, folder css, folder js, folder image).
+
+- ada file env. File ini berfungsi untuk mengatur setting kayak file base url nya apa.
+kalo file env diaktifkan, maka file yang ada di dalam file App di dalam folder config, tidak akan digunakan (akan dioverride oleh file env.)
+
+jangan lupa file env di copy terlebih dahulu biar ada backup settingan awal kayak gimana. Cara menamakan file env dengan menambahkan titik di depan dari nama file env, jadi kayak:
+      .env
+
+- di file env, jangan lupa ubah CI_ENVIRONMENT. Kalo lagi dalam proses pembuatan website, kita ubah menjadi development. Nanti semua error akan dimunculkan.
+
+Kalo tipenya production, semua error akan disembunyikan. Biasanya kalo udah publish, pake tipe production.
+
+Ada lagi tipe namanya testing. 
+
+Jadi CI_ENVIRONMENT ada 3 jenis: production, development, dan testing.
+
+
+- di file env jangan lupa setting base urlnya. 
+Kalo pake local server (php spark serve), maka base urlnya diisikan dengan http://localhost:8080
+Kalo pake web hosting, nanti beda lagi base url nya.
+
+- Karena .env diaktifkan, maka settingan yang ada di file App di dalam folder config tidak akan berpengaruh apapun.
+

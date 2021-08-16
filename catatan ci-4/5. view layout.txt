@@ -1,0 +1,42 @@
+Pada CI4, terdapat view layout.
+View layout berfungsi untuk lebih merapikan cara controller memanggil view. Kan biasanya ada 3 (header, konten, footer). Nah adanya view layout ini berguna untuk meringkas pemanggilan view agar hanya ada 1 file aja yang dipanggil.
+
+Jadi kan, kalo normalnya setelah kita kategorikan ada header.php dan footer.php, nanti di controller kita akan memanggil kedua file tersebut. Jadi nanti di controller akan ada 3 file yang dipanggil di sebuah method. Misal:
+
+      public function index()
+      {
+         echo view('layout/header');
+         echo view('pages/index');
+         echo view('layout/footer);
+      }
+
+Dengan menggunakan view layout, header dan footer akan digabungkan dalam 1 file. Nanti di controller hanya akan muncul 1 file, yaitu view('pages/index'). 
+
+Untuk menggunakan view layout, kita buat dulu 1 file bernama template.php. Di dalam file template.php tersebut, akan berisi isi dari file header dan file footer. Setelah itu, di dalam file template.php yang sudah berisi gabungan header dan footer tadi, di bagian tengah dari file (bagian antara bagian header dan footer/ bisa disebut sebagai bagian body), akan diketikkan sintaks berikut:
+
+      <?= $this->renderSection('content');?>
+
+content adalah nama bebas, ibaratnya sebuah name/variabel sebagai penanda aja.
+
+Setelah itu, kita membuka file dari viewnya. Misal di contoh atas file viewnya adalah file dari controller pages yaitu index.php. Maka kita kemudian akan membuka file index.php yang ada di dalam folder view->pages.
+Di dalam filenya, di bagian atas, pertama kita ketikkan sintaks berikut:
+
+      <?= $this->extend('layout/template');?>
+
+yang artinya akan mengambil data layout/template (yang merupakan file dimana gabungan header dan footer berada).
+
+Lalu di bagian html yang memang merupakan view dari si file index, di beri awalan dan akhiran.
+Awalannya ini diletakkan di sebelum baris html-nya, dengan sintaks berikut:
+
+      <?= $this->section('content');?>
+
+lalu di akhir (setelah baris terakhir html-nya), diberik sintaks penutup seperti berikut:
+
+      <?= $this->endSection();?>
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+- di file template.php misalnya kita mau merapikan navbar. Jadi misalnya untuk navbar bootstrap kita pisahkan di file tersendiri (navabar.php). Jadi saat ingin digunakan (yang menggunakan adalah file template.php), di dalam file tempplate.php tersebut di atasnya persis dari <?= $this->renderSection('content');?> , ketikkan <?= $this->include('layout/navbar.php');?>.
+
+include ini maksudnya parsial, jadi memisahkan dari file template, lalu digabungkan kembali.

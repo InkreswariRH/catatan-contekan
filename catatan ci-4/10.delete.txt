@@ -1,0 +1,13 @@
+- di CI4 terdapat method delete. Method delete merupakan method bawaan CI4. Method delete digunakan untuk delete data.
+
+   contoh: kalo udah konek ke model, bisa ketik $this->komikModel->delete($id);
+
+- di CI4 terdapat method save. Method save merupakan method bawaan CI4. Method save digunakan untuk insert data.
+
+   contoh: kalo udah konek ke model, bisa diketik 
+         $this->komikModel->save([
+            'judul' => $this->request->getVar('judul'),
+            'penulis' => $this->request->getVar('penulis'),
+         ]);
+
+- kalo bikin aplikasi fitur delete, sebaiknya pake http method spoofing. Kalo caranya konvensional, bisa aja di hack, dihapus lewat URL (karena kan biasanya berdasarkan id, dan methodnya cuma ada 2 yaitu get dan post). Kalo pake method spoofing, data hanya bisa dihapus jika method yang dipakai adalah delete. Jadi lebih aman.

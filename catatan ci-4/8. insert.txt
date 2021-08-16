@@ -1,0 +1,71 @@
+- di CI4 ada fitur baru namanya csrf. 
+
+- fitur ini untuk memastikan agar form diisi dari halaman yang bersangkutan aja.Jadi misalnya ada orang yang mau hack, ngirim form buatan mereka dari tempat lain, ga akan bisa. Jadi aman.
+
+- fitur csrf itu diketikkannya seperti berikut:
+
+   <?= csrf_field(); ?>
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+- di CI4 juga ada fitur untuk nangkep data. Caranya:
+   $this->request->getVar('nama variabel (nama name)');
+
+- ada 3 jenis:
+   getVar() -> untuk nangkep method get atau post.
+   getPost() -> untuk nangkep method post.
+   getGet() -> untuk nangkep method get.
+
+=================================================================================
+
+- di CI4 ada fitur untuk nampilin exception:
+    throw new \Codeigniter\Exceptions\PageNotFoundException('isi pesan');
+
+=================================================================================
+
+- kalo mau ngambil / nangkep data, tapi menggunakan model. Caranya:
+   $this->komikModel->save([
+      'judul' => $this->request->getVar('judul'),
+      'penulis' => $this->request->getVar('penulis'),
+   ]);
+
+   jadi $this->komikModel adalah instance dari kelas Model. $this->komikModel sudah di instansiasi di construct.
+
+   save adalah nama method di controller, yang dibuat untuk mengolah data insert.
+
+   'nama field di database' => $this->request->getVar('nama variabel di form nya');
+
+   ================================================================================
+
+- di CI4 ada fitur untuk membuat string jadi kecil semua. Fitur yang disebut sebagai fitur ramah URL. Fiturnya adalah url_title.
+
+   contoh:
+   url_title('stringnya apa', 'separatornya apa kalo ada spasi, misal -', (hurufnya kecil semua atau tidak, kalo kecil semua hurufnya maka true nilainya));
+
+   misal: 
+   $salam = 'Selamat Pagi';
+   url_title($salam, '-', true);
+
+   maka hasilnya menjadi selamat-pagi
+
+   +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+- di CI4 fitur seperti header('Location:); adalah seperti berikut:
+   redirect()->to('controller tujuan');
+
+   misal: redirect()->to('/komik');
+
+   jadi halaman diarahkan ke controller komik.
+
+   ================================================================================
+
+- di CI4 ada fitur keamanan, yang meminta kita untuk menentukan field mana saja di table kita yang dapat diisi sendiri oleh kita (bukan diisi otomatis oleh sistem).
+
+- fitur keamanan untuk memberi tahu field mana saja yang diisi sendiri oleh kita yaitu variabel $allowedFields = [array yang isi elemennya adalah nama field kita yang diisi oleh kita];
+
+===================================================================================
+
+- bikin flasher di ci4:
+    untuk set, pakenya session()->setFlashdata('nama flashernya', 'isi pesannya');
+    untuk get, pakenya session()->getFlashdata('nama setFlashdata nya');

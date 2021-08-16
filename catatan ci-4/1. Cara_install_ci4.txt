@@ -1,0 +1,17 @@
+cara install ci 4 dapat menggunakan composer.
+
+1. 
+Buka git bash di folder htdocs. 
+
+2. 
+Setelah sudah ada di dalam folder htdocs, copy kan sintaks installation with composer yang ada di website codeigniter.com. 
+
+Disitu nanti ada 2 pilihan, yang ada --no dev, adalah nginstall CI yang tanpa ada unit testingnya. Nanti nama folder kita diletakkin di sebelum --no dev.
+
+Kalo versi pake unit testing, di sintaks composernya ada project-root. Nah itu adalah nama foldernya. Bisa kita ganti sesuai keinginan. 
+
+3.
+Kalo udah dicopy sintaks composernya di git bash, lalu di enter.
+
+CI-4 sudah terinstall di dalam htdocs.
+

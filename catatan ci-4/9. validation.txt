@@ -1,0 +1,39 @@
+- validation di CI4 bisa liat di dokumentasi. 
+- misalkan di dokumentasi terdapat 'field_name', maka itu adalah field database kita.
+- cara menuliskan field_name adalah nama table.nama field yang dimaksud.
+   Contoh: $this->validate([
+      'judul'=>'required|is_unique[komik.judul]'
+   ]);
+
+   judul adalah nama variable name di form nya.
+   maksudnya nama table databasenya komik, dengan nama field judul.
+   untuk nambahin validation baru, ditambahinnya pake tanda pipe |.
+
+- validation di CI4 juga bisa ditampilkan errornya. Cara nampilin/ngambil error validation:
+   $validation = \Config\Services::validation();
+
+   nanti untuk ngambil per error (udah disediakan otomatis oleh CI4, error akan ditampilkan dan disesuaikan otomatis oleh keadaan), bisa pake getError('nama name variable di form');
+
+   contoh: $validation->getError('judul');
+
+   untuk mengetahui apakah terjadi error atau tidak, bisa menggunakan hasError('nama name variabel di form');
+
+   contoh: if($validation->hasError('judul')){
+      apa yang terjadi..
+   }
+
+   =================================================================================
+   - di CI4 juga menyediakan fitur old, yang dapat menyimpan isian kita pada field. Misalkan, kalo kita salah mengisi data pada field, biasanya saat tombol submit di klik, data akan terhapus semua, sehingga mengharuskan kita mengisi ulang. Biar ga capek ngetik ulang, kita bisa manfaatin fitur old ini.
+
+   Misal, ditaruh di tag input, di dalam value. 
+   <input value=<?= old('nama name variabel'); ?> >
+
+   =================================================================================
+
+   - kalo pake redirect()->to('nama controller'), kita tidak bisa memasukkan parameter data. Kalo pake cara biasa kan kita bisa ngirim data, maksudnya seperti ini:
+      return view('letak view', $data);
+
+   Tapi kalo mau tetep pake redirect sambil mengirim data, maka bisa menambahkan ->withInput()->with('key value', $validation);
+
+   sehingga menjadi:
+   redirect->to('komik/create')->withInput()->with('validation', $validation);

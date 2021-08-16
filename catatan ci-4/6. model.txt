@@ -1,0 +1,99 @@
+- model berkaitan dengan data (ambil data dari database).
+- misalkan kita mau manggil folder img atau css yang ada di dalam folder public. Misalkan kita mau panggil img dan css tersebut dari file yang ada di dalam app->view (mau manggil folder img dan css dari folder views). Untuk manggilnya seperti ini:
+      contoh:
+         <tr><img src="/img/ines.jpg"></tr>
+
+         atau
+
+         <link rel="stylesheet" href="/css/style.css">
+
+   
+   perhatikan bahwa pada awalnya ada tanda /. Tanda / itu artinya folder public. Folder img dan css kan letaknya ada di dalam folder public, jadi kan kalo mau akses pertama-tama harus masuk ke dalam folder public dulu.
+
+- misalkan kita mau bikin css untuk komponen th dan td di dalam tag table.
+   contoh:
+
+      <table class="table">
+         <tbody>
+            <tr>
+               <th>
+                  <td>
+
+                  </td>
+               </th>
+            </tr>
+         </tbody>
+      </table>
+
+   Jadi css nya yang ada di dalam file style.css bisa ditulis seperti ini:
+
+      .table > tbody > tr > * {
+
+      }
+
+   Bintang * itu artinya untuk ngambil baik th maupun td. Kalo misal mau ubah td aja, maka bisa begini:
+
+      .table > tbody > tr > td {
+
+      }
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+- di CI4 ada fitur yang menunjukkan kapan data kita dibuat (created at), diubah (updated at), dan dihapus (deleted at). Jadi pas bikin table database, tambahin field/column created_at, updated_at, deleted_at.
+
+- di table database juga ada field/column yang namanya slug. Slug ini fungsinya sebagai penanda unik untuk objek yang diinputkan (biasanya pake - dan hurufnya kecil semua). misalkan lagi bahas judul, maka di slug nya itu bisa diinputkan dengan nama lain dari judul.
+   Contoh:
+      name = Naruto
+      maka slugnya bisa diisi 
+      slug = naruto
+
+      name = One Piece
+      maka slugnya bisa diisi
+      slug = one-piece
+
+===========================================================================================================
+
+- misalkan mau bikin model biar bisa konek database, itu kita bisa buka website resmi codeigniter->documentation->using codeigniter's model. Nanti disitu akan ada creating your model.
+
+- nanti creating your model ini bisa dimasukkin ke file KomikModel.php.
+
+- di dalam class UserModel extends Model
+   {
+      // ...
+   }
+   nanti akan diisi oleh beberapa unsur setting. Unsur setting apa saja yang dimasukkan, bisa berpedoman pada  Configuring Your Model di website resmi codeigniter.
+
+- Sebenarnya Configuring Your Model yang ada di website resmi merupakan pedoman apa saja yang perlu diperhatikan untuk mengkonekkan kodingan kita ke database.
+
+- Setelah mengetahui komponen apa saja yang perlu diperhatikan untuk mengkonekkan database dengan kodingan kita, kita bisa memperhatikan file parent Model. Untuk mengetahui letaknya, cukup di search saja di dalam code editor. Nanti akan ada direktori dari file Model.
+
+- Nanti data-data yang ada di file parent Model apabila sama dengan yang sudah kita miliki, maka biarkan saja. Tapi kalo belom, maka kita harus menuliskannya di dalam class UserModel extends Model milik kita (ditimpa).
+   Contoh: apabila protected $table = 'users'; yang ada di file parent Model nama tabelnya tidak sama, maka kita harus menulis ulang statement tersebut di dalam file class UserModel extends Model milik kita. Jadi nanti biar ketimpa dan setting yang dipake merupakan setting yang menimpa (yang kita buat baru).
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+- kalo misalnya mau konek ke database ga bisa. Buka file .env. Kemudian ganti hostname nya dari localhost ke 127.0.0.1.
+
+- kalo namain kelas di model itu "<nama table di database lalu tambahin model>". Contoh nama tabel di database adalah komik. Maka KomikModel.php. Nanti isi KomikModel.php ini adalah setting database yang sebelumnya (yang mencocokkan dengan file parent Model dan berpedoman pada website resmi CI bagian Configuring Your Model).
+
+- misalkan kalo mau manggil model di komik, maka cara manggilnya 
+
+   contoh: $komikModel = new \App\Models\KomikModel();
+
+            atau bisa jadi, di awal file tulis use, kayak gini:
+            use App\Models\KomikModel;
+
+            $komikModel = new KomikModel();
+
+- misalnya kalo mau manggil dan ngambil data dari database, bisa pake ini: 
+   
+   $komik = $komikModel->findAll();
+
+   data database akan dimasukkan ke dalam variabel $komik. Nanti dipanggil di view dengan cara foreach. FindAll() merupakan fungsi yang disediakan model CI untuk mengambil data database.
+
+
+      
+

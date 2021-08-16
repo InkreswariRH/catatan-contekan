@@ -1,0 +1,35 @@
+Cara menjalankan ci4 kini ada 2 cara.
+
+1.
+Menggunakan cara seperti biasanya, yaitu membuka file websitenya pake xampp.
+
+Jadi pertama aktifin dulu xampp control panelnya. Aktifin dulu web servernya.
+Abis itu kita akses folder ci4 kita di browser (kayak biasanya aja kayak sebelum sebelumnya kalo buka website di folder htdocs). Yaitu:
+
+      localhost/<nama folder website ci4 kita yang ada di htdocs>/public.
+
+Nanti kalo udah bener, akan muncul welcome message dari codeigniter.
+
+File utama/ website utamanya diakses di folder public ini.
+
+
+2.
+pake local server CI 4.
+
+Cara aktifin local servernya, sebagai pengguna windows, kita bisa gunain git bash.
+
+kita buka git bash di dalam folder ci4 kita yang ada di dalam htdocs tadi.
+
+pertama, kita masuk dulu ke dalam folder ci4 kita (yang ada di dalam htdocs). Lalu setelah ada di dalam folder ci4, kita buka git bash.
+
+setelah itu, kita ketikkan sintaks berikut:
+
+      php spark serve
+
+nanti local server akan aktif, yaitu http://localhost:8080
+
+sebenarnya, http://localhost:8080 === localhost/<nama folder ci4>/public
+
+setelah aktif, halaman git bash jangan ditutup. Kalo ditutup artinya server localnya dimatiin. selain di close halaman git bashnya, cara lain untuk mematikan local server adalah dengan mengklik ctrl+c.
+
+Di browser nanti, ketikkan aja localhost:8080, nanti akan muncul welcome message, yang artinya codeigniter sudah berhasil terinstall dan berhasil dijalankan dengan local server.
